@@ -93,6 +93,11 @@
         <div class="continue-button">
           <input type="submit" id="send" value="Continuar" />
         </div>
+        {%if sign_up_response != "Usuário cadastrado com sucesso!" %}
+        <div class="small">
+          <small>{{sign_up_response}}</small>
+        </div>
+        {% endif %}
       </form>
     </section>
     <section class="container changeColor" id="sign-in">

@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for, redirect
 from sign import *
 
 app = Flask(__name__)
@@ -10,18 +10,22 @@ def homepage():
     return render_template('home.html')
 
 
-@app.route('/sign')
-def login():
-    return render_template('sign.html')
-
-
 @app.route('/register', methods=['POST'])
 def register():
+    global userData, sign_up_response
     userData, sign_up_response = sign_up()
-    if sign_up_response != "Usuário cadastrado com sucesso!":
-        return render_template('sign.html', sign_up_response=sign_up_response)
+    if sign_up_response == "Usuário cadastrado com sucesso!":
+        return redirect(url_for('user'), code=307)
     else:
-        return user(userData)
+        return redirect(url_for('sign'), code=307)
+
+
+@app.route('/sign', methods=['GET', 'POST'])
+def sign():
+    if request.method == 'GET':
+        return render_template('sign.html')
+    elif request.method == 'POST':
+        return render_template('sign.html', sign_up_response=sign_up_response)
 
 
 @app.route('/authentication', methods=['POST'])
@@ -35,8 +39,8 @@ def authentication():
         return render_template('sign.html', sign_in_response=sign_in_response)
 
 
-@app.route('/user', methods=['POST'])
-def user(userData):
+@app.route('/user', methods=['GET', 'POST'])
+def user():
     titleName = userData["firstName"] + " " + userData["lastName"]
     return render_template('user.html', titleName=titleName)
 

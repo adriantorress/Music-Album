@@ -10,7 +10,7 @@ def connect_database():
     except:
         print("\nCreating new db connection...")
         music_album_bd = mysql.connector.connect(
-            host='localhost', user='user', password='password', database='music-album-bd')
+            host='localhost', user='root', password='#241258Aj', database='music-album-bd')
         cursor = music_album_bd.cursor()
 
 
@@ -28,10 +28,8 @@ def disconnect_database():
 
 def write_in_db(firstName, lastName, username, email, phoneNumber, password, passwordConfirmation, gender):
     connect_database()
-    global music_album_bd
-    global cursor
-    create_user = f'''INSERT INTO usuario (nome, sobrenome, nomeUsuario, email, celular, senha, genero) 
-                      VALUES ("{firstName}", "{lastName}", "{username}", "{email}", "{phoneNumber}", "{password}", "{gender}")'''
+    create_user = f'''INSERT INTO usuario (nome, sobrenome, nomeUsuario, email, celular, senha, genero)
+                      VALUES ("{firstName}", "{lastName}", "{username}", "{email}", "{phoneNumber}", "{password}","{gender}")'''
     try:
         cursor.execute(create_user)
     except:
@@ -60,8 +58,6 @@ def write_in_db(firstName, lastName, username, email, phoneNumber, password, pas
 
 def read_from_db(user, password):
     connect_database()
-    global music_album_bd
-    global cursor
     select_user = f'''SELECT nome, sobrenome, nomeUsuario,email,celular,senha FROM usuario where nomeUsuario="{user}" or email="{user}" or celular="{user}"'''
     cursor.execute(select_user)
     userDb = cursor.fetchall()
@@ -75,4 +71,8 @@ def read_from_db(user, password):
         return [userDb[0][0], userDb[0][1]]
 
 
-disconnect_database()
+if __name__ == '__main__':
+    print(write_in_db("Adrian", "Torres", "ssssssss",
+          "adriantorressssssssscv@gmail.com", "8298274389sssssss27", "8228686aj", "8228686aj", "Masculino"))
+else:
+    disconnect_database()

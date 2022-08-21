@@ -3,14 +3,14 @@ from bd_acess import *
 
 
 def sign_up():
-    firstName = request.form.get('firstName')
-    lastName = request.form.get('lastName')
-    username = request.form.get('username')
-    email = request.form.get('email')
-    phoneNumber = request.form.get('number')
-    password = request.form.get('password')
-    passwordConfirmation = request.form.get('passwordConfirmation')
-    gender = request.form.get('gender')
+    firstName = request.form['firstName']
+    lastName = request.form['lastName']
+    username = request.form['username']
+    email = request.form['email']
+    phoneNumber = request.form['number']
+    password = request.form['password']
+    passwordConfirmation = request.form['passwordConfirmation']
+    gender = request.form['gender']
     userData = {"firstName": firstName, "lastName": lastName, "username": username, "email": email,
                 "phoneNumber": phoneNumber, "password": password, "passwordConfirmation": passwordConfirmation, "gender": gender}
     sign_up_response = write_in_db(
@@ -24,3 +24,7 @@ def sign_in():
     sign_in_response = read_from_db(user, password)
 
     return sign_in_response
+
+
+if __name__ == '__main__':
+    print(sign_up())
