@@ -17,25 +17,35 @@ def register():
     if sign_up_response == "Usuário cadastrado com sucesso!":
         return redirect(url_for('user'), code=307)
     else:
-        return redirect(url_for('sign'), code=307)
+        return redirect(url_for('signUp'), code=307)
+
+
+@app.route('/authentication', methods=['POST'])
+def authentication():
+    global userData, sign_in_response
+    sign_in_response = sign_in()
+    if type(sign_in_response) == list:
+        global userData
+        userData = {
+            "firstName": sign_in_response[0], "lastName": sign_in_response[1]}
+        return redirect(url_for('user'), code=307)
+    else:
+        return redirect(url_for('signIn'), code=307)
 
 
 @app.route('/sign', methods=['GET', 'POST'])
-def sign():
+def signUp():
     if request.method == 'GET':
         return render_template('sign.html')
     elif request.method == 'POST':
         return render_template('sign.html', sign_up_response=sign_up_response)
 
 
-@app.route('/authentication', methods=['POST'])
-def authentication():
-    sign_in_response = sign_in()
-    if type(sign_in_response) == list:
-        userData = {
-            "firstName": sign_in_response[0], "lastName": sign_in_response[1]}
-        return user(userData)
-    else:
+@app.route('/sign-in', methods=['GET', 'POST'])
+def signIn():
+    if request.method == 'GET':
+        return render_template('sign.html')
+    elif request.method == 'POST':
         return render_template('sign.html', sign_in_response=sign_in_response)
 
 

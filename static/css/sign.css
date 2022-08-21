@@ -252,7 +252,7 @@ main {
   display: flex;
   justify-content: center;
   margin-top: 1rem;
-  margin-bottom: 9rem;
+  margin-bottom: 3rem;
   border: none;
   background-color: #ff1168;
   padding: 0.62rem;
@@ -266,6 +266,16 @@ main {
 
 .sign-in-button input:hover {
   background-color: rgba(95, 255, 200, 0.8);
+}
+
+.small-sign-in {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  margin-bottom: 6rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
 }
 
 
@@ -299,29 +309,35 @@ main {
 }
 
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1220px) {
+  body {
+    height: 183vh;
+    overflow: auto;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column-reverse;
+    height: 160vh;
+    width: 80%;
+    box-shadow: 0 0 15px rgba(95, 231, 255, 0.8);
+  }
+
   .container {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: auto;
-    width: 40%;
     align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
     box-shadow: 0 0 15px rgba(95, 231, 255, 0.8);
   }
 
   #sign-up {
-    padding-top: 40rem;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    width: 50%;
-    overflow: auto;
+    padding-top: 2rem;
+    width: 100%;
   }
 
   .header {
-    margin-left: 5%;
     position: relative;
   }
 
@@ -336,10 +352,9 @@ main {
     border-radius: 10px;
   }
 
-
   .input-group {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
   }
 
   .input-box label,
@@ -349,14 +364,20 @@ main {
     color: #000000c0
   }
 
-  .gender-group {
+  #sign-in {
+    padding-top: 5rem;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    margin-top: 0.8rem;
-    margin-left: 30px;
+    align-items: center;
     flex-direction: column;
-    margin-right: 2rem;
+    border-radius: 5px;
+    width: 100%;
+  }
+
+  .gender-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.6rem;
     border: none;
     border-radius: 10px;
     box-shadow: 1px 1px 6px #fff;
@@ -365,8 +386,8 @@ main {
   .continue-button input {
     display: flex;
     justify-content: center;
-    width: 45%;
-    margin-left: 27.5%;
+    width: 80%;
+    margin-left: 10%;
     margin-bottom: 7.5%;
     border: none;
     background-color: #ff1168;
@@ -382,45 +403,99 @@ main {
     background-color: #ff1190
   }
 
+  .small-sign-in {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin-bottom: 6rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+  }
 }
 
-@media screen and (max-width: 1072px) {
+@media screen and (max-width: 650px) {
+  main {
+    display: flex;
+    flex-direction: column-reverse;
+    height: 160vh;
+    width: 95%;
+    box-shadow: 0 0 15px rgba(95, 231, 255, 0.8);
+  }
+
   #sign-up {
-    padding-top: 40rem;
+    padding-top: 5rem;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    width: 50%;
+    max-height: 50%;
+    width: 100%;
+    overflow: auto;
+  }
+
+}
+
+@media screen and (max-width: 520px) {
+  #sign-up {
+    padding-top: 17rem;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    overflow: auto;
+  }
+
+}
+
+@media screen and (max-width: 450px) {
+
+
+  #sign-up {
+    padding-top: 17rem;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
     overflow: auto;
   }
 
   .gender-group {
     display: flex;
-    padding-right: 30%;
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-start;
     flex-direction: column;
+    margin-top: 0.6rem;
     border: none;
-    margin-left: 20%;
-    margin-right: 10%;
     border-radius: 10px;
     box-shadow: 1px 1px 6px #fff;
   }
 
-  .continue-button input {
+}
+
+@media screen and (max-width: 252px) {
+  body {
+    border: 2px solid rgba(95, 231, 255, 0.8);
+    border-radius: 5px;
+    height: 69rem;
     display: flex;
     justify-content: center;
-    width: 50%;
-    margin-left: 25%;
-    margin-bottom: 10%;
-    border: none;
-    background-color: #ff1168;
-    padding: 0.62rem;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.93rem;
-    font-weight: 500;
-    color: #fff
+  }
+
+  main {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 110px) {
+  * {
+    background-color: black
+  }
+
+  body {
+    display: none;
   }
 }
