@@ -51,8 +51,12 @@ def signIn():
 
 @app.route('/user', methods=['GET', 'POST'])
 def user():
-    titleName = userData["firstName"] + " " + userData["lastName"]
-    return render_template('user.html', titleName=titleName)
+    if request.method == 'GET':
+        titleName = userData["firstName"] + " " + userData["lastName"]
+        return render_template('user.html', titleName=titleName)
+    elif request.method == 'POST':
+        titleName = userData["firstName"] + " " + userData["lastName"]
+        return render_template('user.html', titleName=titleName)
 
 
 if __name__ == '__main__':

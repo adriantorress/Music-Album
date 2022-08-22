@@ -10,7 +10,7 @@ def connect_database():
     except:
         print("\nCreating new db connection...")
         music_album_bd = mysql.connector.connect(
-            host='localhost', user='root', password='#241258Aj', database='music-album-bd')
+            host='localhost', user='user', password='password', database='music-album-bd')
         cursor = music_album_bd.cursor()
 
 

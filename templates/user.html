@@ -11,10 +11,26 @@
 
 <body>
   <header>
-    <a href="/" class="logo-a">
-      <img class="logo-img" src="{{url_for('static', filename='img/logo.png')}}" alt="Imagem de Fundo" />
-      <h1 class="logo-text">Music<br>Album</h1>
-    </a>
+    <nav>
+      <div class="nav-logo">
+        <a href="/" class="logo-a">
+          <img class="logo-img" src="{{url_for('static', filename='img/logo.png')}}" alt="Imagem de Fundo" />
+          <h1 class="logo-text">Music<br>Album</h1>
+        </a>
+      </div>
+      <div class="nav-img">
+        <img src="{{url_for('static', filename='img/Sound-wave.png')}}"
+          alt="&lt;a href='https://.pngtree.com/so/Equalizador'&gt;Equalizador png de .pngtree.com/&lt;/a&gt;">
+      </div>
+      <div class="nav-button">
+        <a href=" " class="nav-a">Pesquisar</a>
+        <a href=" " class="nav-a">Novo Álbum</a>
+        <a href=" " class="nav-a">Meus Álbuns</a>
+      </div>
+      <div class="nav-user">
+        <img class="nav-user-img" src="{{url_for('static', filename='img/profile.png')}}" alt="Profile image">
+      </div>
+    </nav>
   </header>
 </body>
 
