@@ -16,6 +16,19 @@ body {
   background: linear-gradient(90deg, #09738a 15%, #092b5a 85%);
 }
 
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 12.25rem;
+  width: 100%;
+}
+
+.header-div {
+  height: 100%;
+
+}
+
 .logo-a {
   display: flex;
   align-items: center;
