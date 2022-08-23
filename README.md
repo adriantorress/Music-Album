@@ -6,5 +6,4 @@
 
 ###### 	Aprendendo e aprimorando conceitos e buscando aprimorar o projeto e evoluir com a prática diária.
 
-##### Em caso de teste do código, mudar o user e o password (music_album_bd = mysql.connector.connect(
-            host='localhost', user='user', password='password', database='music-album-bd')) na função connect_database() do arquivo bd_acess.py para o usuário e a senha do seu banco SQL. 
+##### Em caso de teste do código, mudar o user e o password (music_album_bd = mysql.connector.connect(host='localhost', user='user', password='password', database='music-album-bd')) na função connect_database() do arquivo bd_acess.py para o usuário e a senha do seu banco SQL. 
