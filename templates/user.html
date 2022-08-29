@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/user.css')}}" />
-  <link rel="shortcut icon" href="{{url_for('static', filename='img/favicon.svg')}}" type="image/x-icon" />
+  <link rel="shortcut icon" href="{{url_for('static', filename='img/site/favicon.svg')}}" type="image/x-icon" />
   <title>{{titleName}}</title>
 </head>
 
@@ -17,9 +17,12 @@
     <nav>
       <div class="nav-logo">
         <a href="/" class="logo-a">
-          <img class="logo-img" src="{{url_for('static', filename='img/logo.png')}}" alt="Imagem de Fundo" />
+          <img class="logo-img" src="{{url_for('static', filename='img/site/logo.png')}}" alt="Imagem de Fundo" />
           <h1 class="logo-text">Music<br>Album</h1>
         </a>
+      </div>
+      <div class="nav-greetings">
+        <h2>Bem-vindo, {{titleName}}</h2>
       </div>
       <div class="nav-button">
         <a href=" " class="nav-a">Pesquisar</a>
@@ -27,48 +30,550 @@
         <a href=" " class="nav-a">Meus Álbuns</a>
       </div>
       <div class="nav-user">
-        <img class="nav-user-img" src="{{url_for('static', filename='img/profile.png')}}" alt="Profile image">
       </div>
     </nav>
   </header>
   <main>
-    <section class="container" id="cont-1">
-      <section class="container-child" id="cont-c-1">
-        <p>a</p>
-      </section>
-      <section class="container-child" id="cont-c-2">
-        <p>b</p>
-      </section>
-      <section class="container-child" id="cont-c-3">
-        <p>c</p>
-      </section>
+    <div class="album-name">Anime Openings</div>
+    <section class="container-child">
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/anime-openings/one-piece-2.png')}}"
+            alt="Album das openings de One Piece" />
+          <div class="c-txt">One Piece</div>
+          <span>Toei Animation</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/anime-openings/naruto-classico-2.jpg')}}"
+            alt="Album das openings de Naruto Clássico" />
+          <div class="c-txt">Naruto Clássico</div>
+          <span>Studio Pierrot e TV Tokyo</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/anime-openings/naruto-shippuden-2.webp')}}"
+            alt="Album das openings de Naruto Shippuden" />
+          <div class="c-txt">Naruto Shippuden</div>
+          <span>Studio Pierrot e TV Tokyo</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/anime-openings/dragon-ball-classico.jpeg')}}"
+            alt="Album das openings de Dragon Ball" />
+          <div class="c-txt">Dragon Ball</div>
+          <span>Toei Animation</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/anime-openings/dragon-ball-z.webp')}}"
+            alt="Album das openings de Dragon Ball Z" />
+          <div class="c-txt">Dragon Ball Z</div>
+          <span>Toei Animation</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/anime-openings/death-note.jpg')}}"
+            alt="Album das openings de Death Note" />
+          <div class="c-txt">Death Note</div>
+          <span>Madhouse</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/anime-openings/boku-no-hero-2.webp')}}"
+            alt="Album das openings de Boku No Hero" />
+          <div class="c-txt">Boku No Hero</div>
+          <span>TOHO, Shueisha</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/anime-openings/attack-on-titan-2.jpg')}}"
+            alt="Album das openings de Attack On Titan" />
+          <div class="c-txt">Attack On Titan</div>
+          <span>TOHO</span>
+        </div>
+      </a>
     </section>
-    <section class="container" id="cont-2">
-      <section class="container-child-2" id="cont-c2-1">
-        <p>d</p>
-      </section>
-      <section class="container-child-2" id="cont-c2-2">
-        <p>e</p>
-      </section>
-      <div class="cont-2-img">
-        <img src="{{url_for('static', filename='img/Sound-wave.png')}}"
-          alt="&lt;a href='https://.pngtree.com/so/Equalizador'&gt;Equalizador png de .pngtree.com/&lt;/a&gt;">
-      </div>
+    <div class="album-name">Anime Endings</div>
+    <section class="container-child">
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/anime-endings/one-piece.jpg')}}"
+            alt="Album das endings de One Piece" />
+          <div class="c-txt">One Piece</div>
+          <span>Toei Animation</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/anime-endings/naruto-classico.jpg')}}"
+            alt="Album das endings de Naruto Clássico" />
+          <div class="c-txt">Naruto Clássico</div>
+          <span>Studio Pierrot e TV Tokyo</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/anime-endings/naruto-shippuden.jpg')}}"
+            alt="Album das endings de Naruto Shippuden" />
+          <div class="c-txt">Naruto Shippuden</div>
+          <span>Studio Pierrot e TV Tokyo</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/anime-endings/dragon-ball-2.jpg')}}"
+            alt="Album das endings de Dragon Ball" />
+          <div class="c-txt">Dragon Ball</div>
+          <span>Toei Animation</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/anime-endings/dragon-ball-z-2.png')}}"
+            alt="Album das endings de Dragon Ball Z" />
+          <div class="c-txt">Dragon Ball Z</div>
+          <span>Toei Animation</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/anime-endings/death-note-2.jpg')}}"
+            alt="Album das endings de Death Note" />
+          <div class="c-txt">Death Note</div>
+          <span>Madhouse</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/anime-endings/boku-no-hero.webp')}}"
+            alt="Album das endings de Boku No Hero" />
+          <div class="c-txt">Boku No Hero</div>
+          <span>TOHO, Shueisha</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/anime-endings/attack-on-titan.jpg')}}"
+            alt="Album das endings de Attack On Titan" />
+          <div class="c-txt">Attack On Titan</div>
+          <span>TOHO</span>
+        </div>
+      </a>
     </section>
-    <section class="container" id="cont-3">
-      <section class="container-child-3" id="cont-c3-1">
-        <p>f</p>
-      </section>
-      <section class="container-child-3" id="cont-c3-2">
-        <p>g</p>
-      </section>
-      <section class="container-child-3" id="cont-c3-3">
-        <p>h</p>
-      </section>
+    <div class="album-name">Funk</div>
+    <section class="container-child">
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/funk/gaab.jpg')}}" alt="Album de funk do Mc Gaab" />
+          <div class="c-txt">Positividade</div>
+          <span>Gaab</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/funk/kevin.jpg')}}"
+            alt="Album de funk do Mc Kevin" />
+          <div class="c-txt">MC Kevin no Estúdio Showlivre (Ao Vivo)</div>
+          <span>MC Kevin</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/funk/hariel.webp')}}"
+            alt="Album de funk do Mc Hariel" />
+          <div class="c-txt">Avisa Que É O Funk</div>
+          <span>Mc Hariel</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/funk/neguinho-do-kaxeta.webp')}}"
+            alt="Album de funk do Mc Neguinho do Kaxeta" />
+          <div class="c-txt">Respeita Minha História (Ao Vivo)</div>
+          <span>Mc Neguinho do Kaxeta</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/funk/mc-daleste.webp')}}"
+            alt="Album de funk do Mc Daleste" />
+          <div class="c-txt">+ Amor - Recalque</div>
+          <span>Mc Daleste</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/funk/mc-cabelinho.webp')}}"
+            alt="Album de funk do Mc Cabelinho" />
+          <div class="c-txt">Ainda</div>
+          <span>Mc Cabelinho</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/funk/ludmilla.webp')}}"
+            alt="Album de funk da Ludmilla" />
+          <div class="c-txt">Numanice #2 (Ao Vivo)</div>
+          <span>Ludmilla</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/funk/mc-cabelinho-2.webp')}}"
+            alt="Album de funk do Mc Cabelinho" />
+          <div class="c-txt">LITTLE HAIR</div>
+          <span>Mc Cabelinho</span>
+        </div>
+      </a>
+    </section>
+    <div class="album-name">Rock</div>
+    <section class="container-child">
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/rock/linkin-park.webp')}}"
+            alt="Album de rock do Linkin Park" />
+          <div class="c-txt">Greatest Hits</div>
+          <span>Linkin Park</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/rock/elvis-presley.webp')}}"
+            alt="Album de rock do Elvis Presley" />
+          <div class="c-txt">Hitstory</div>
+          <span>Elvis Presley</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/rock/guns-n-roses.webp')}}"
+            alt="Album de rock do Guns N' Roses" />
+          <div class="c-txt">Destruction, Lies: The Road To Illusion</div>
+          <span>Guns N' Roses</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/rock/bon-jovi.webp')}}"
+            alt="Album de rock do Bon Jovi" />
+          <div class="c-txt">Cross Road</div>
+          <span>Bon Jovi</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/rock/the-beatles.webp')}}"
+            alt="Album de rock do The Beatles" />
+          <div class="c-txt">#1</div>
+          <span>The beatles</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/rock/metallica.webp')}}"
+            alt="Album de rock do Metallica" />
+          <div class="c-txt">Live Shit : Binge And Purge</div>
+          <span>Metallica</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/rock/raul-seixas.webp')}}"
+            alt="Album de rock do Raul Seixas" />
+          <div class="c-txt">Maluco Beleza</div>
+          <span>Raul Seixas</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/rock/legiao-urbana.webp')}}"
+            alt="Album de rock do Legião Urbana" />
+          <div class="c-txt">Mais do Mesmo</div>
+          <span>Legião Urbana</span>
+        </div>
+      </a>
+    </section>
+    <div class="album-name">Sertanejo</div>
+    <section class="container-child">
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/sertanejo/marilia-mendonca.webp')}}"
+            alt="Album de sertanejo da Marília Mendonça" />
+          <div class="c-txt">Perfil</div>
+          <span>Marília Mendonça</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/sertanejo/luan-santana.webp')}}"
+            alt="Album de sertanejo do Luan Santana" />
+          <div class="c-txt">LUAN CITY (Ao Vivo)</div>
+          <span>Luan Santana</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/sertanejo/jorge-e-matheus.webp')}}"
+            alt="Album de sertanejo de Jorge E Matheus" />
+          <div class="c-txt">10 Anos</div>
+          <span>Jorge e Matheus</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/sertanejo/maiara-e-maraisa.webp')}}"
+            alt="Album de sertanejo de Maiara e Maraisa" />
+          <div class="c-txt">Patroas 35%</div>
+          <span>Maiara e Maraisa</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/sertanejo/matheus-e-kauan.webp')}}"
+            alt="Album de sertanejo de Matheus e Kauan" />
+          <div class="c-txt">Na Praia</div>
+          <span>Matheus e Kauan</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/sertanejo/victor-e-leo.webp')}}"
+            alt="Album de sertanejo de Victor e Leo" />
+          <div class="c-txt">Seleção Essencial</div>
+          <span>Victor e Leo</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/sertanejo/gusttavo-lima.webp')}}"
+            alt="Album de sertenejo do Gusttavo Lima" />
+          <div class="c-txt">O Embaixador</div>
+          <span>Gusttavo Lima</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/sertanejo/henrique-e-juliano.webp')}}"
+            alt="Album de sertanejo de Henrique e Juliano" />
+          <div class="c-txt">Novas Historias (Ao Vivo)</div>
+          <span>Henrique e Juliano</span>
+        </div>
+      </a>
+    </section>
+    <div class="album-name">Rap</div>
+    <section class="container-child">
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/rap/sabotage.webp')}}"
+            alt="Album de rap do Sabotage" />
+          <div class="c-txt">Rap É Compromisso</div>
+          <span>Sabotage</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/rap/racionais.webp')}}"
+            alt="Album de rap de Racionais MC's" />
+          <div class="c-txt">Nada Como Um Dia Após O Outro Dia</div>
+          <span>Racionais MC's</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/rap/greatest-hits.webp')}}"
+            alt="Album de rap do 2Pac" />
+          <div class="c-txt">Greatest Hits</div>
+          <span>2Pac</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/rap/drake.webp')}}" alt="Album de rap do Drake" />
+          <div class="c-txt">Scorpion</div>
+          <span>Drake</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/rap/filipe-ret.webp')}}"
+            alt="Album de rap do Filipe Ret" />
+          <div class="c-txt">Imaterial</div>
+          <span>Filipe Ret</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/rap/djonga.webp')}}" alt="Album de rap do Djonga" />
+          <div class="c-txt">O Menino Que Queria Ser Deus</div>
+          <span>Djonga</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/rap/50-cent.webp')}}"
+            alt="Album de rap do 50 Cent" />
+          <div class="c-txt">Get Rich Or Die Tryin'</div>
+          <span>50 Cent</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/rap/eminem.webp')}}" alt="Album de rap do Eminem" />
+          <div class="c-txt">Curtain Call: The Hits (Deluxe Edition)</div>
+          <span>Eminem</span>
+        </div>
+      </a>
+    </section>
+    <div class="album-name">Trap</div>
+    <section class="container-child">
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/trap/matue.webp')}}" alt="Album de trap do Matuê" />
+          <div class="c-txt">Máquina do Tempo</div>
+          <span>Matuê</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/trap/travis-scott.webp')}}"
+            alt="Album de trap do Travis Scott" />
+          <div class="c-txt">ASTROWORLD</div>
+          <span>Travis Scott</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/trap/lil-pump.webp')}}"
+            alt="Album de trap do Lil Pump" />
+          <div class="c-txt">Lil Pump</div>
+          <span>Lil Pump</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/trap/asap-ferg.webp')}}"
+            alt="Album de trap do A$AP Ferg" />
+          <div class="c-txt">Trap Lord</div>
+          <span>A$AP Ferg</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/trap/clipse.webp')}}"
+            alt="Album de trap do Clipse" />
+          <div class="c-txt">Hell Hath No Fury</div>
+          <span>Clipse</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/trap/chief-keef.webp')}}"
+            alt="Album de trap do Chief Keef" />
+          <div class="c-txt">Finally Rich</div>
+          <span>Chief Keef</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/trap/asap-rocky.webp')}}"
+            alt="Album de trap do A$AP Rocky" />
+          <div class="c-txt">AT.LONG.LAST.A$AP</div>
+          <span>A$AP Rocky</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/trap/young-thug.webp')}}"
+            alt="Album de trap do Young Thug" />
+          <div class="c-txt">Slime Season 3</div>
+          <span>Young Thug</span>
+        </div>
+      </a>
+    </section>
+    <div class="album-name">MPB</div>
+    <section class="container-child">
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/mpb/djavan.webp')}}" alt="Album de MPB do Djavan" />
+          <div class="c-txt">Perfil</div>
+          <span>Djavan</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/mpb/gonzaguinha.webp')}}"
+            alt="Album de MPB do Gonzaguinha" />
+          <div class="c-txt">Meus Momentos</div>
+          <span>Gonzaguinha</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/mpb/elis-regina.webp')}}"
+            alt="Album de MPB da Elis Regina" />
+          <div class="c-txt">Perfil</div>
+          <span>Elis Regina</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/mpb/belchior.webp')}}"
+            alt="Album de MPB do Belchior" />
+          <div class="c-txt">Auto-Retrato</div>
+          <span>Belchior</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/mpb/nando-reis.webp')}}"
+            alt="Album de MPB do Nando Reis" />
+          <div class="c-txt">Nando Reis & Os Infernais (Ao Vivo)</div>
+          <span>Nando Reis</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/mpb/ze-ramalho.webp')}}"
+            alt="Album de MPB do Zé Ramalho" />
+          <div class="c-txt">Antologia Acústica - 20 Anos</div>
+          <span>Zé Ramalho</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/mpb/chico-buarque.webp')}}"
+            alt="Album de MPB do Chico Buarque" />
+          <div class="c-txt">As Cidades</div>
+          <span>Chico Buarque</span>
+        </div>
+      </a>
+      <a href="#">
+        <div class="c">
+          <img class="c-img" src="{{url_for('static', filename='img/mpb/fagner.webp')}}" alt="Album de MPB do Fagner" />
+          <div class="c-txt">Perfil</div>
+          <span>Fagner</span>
+        </div>
+      </a>
     </section>
   </main>
   <footer>
-    <p>Footer</p>
+    <div class="footer-child">
+      <h5>Redes</h5>
+      <a href="https://www.instagram.com/adriantorres.s/">Instagram</a>
+      <a href="https://www.linkedin.com/in/adriantorres-s/">LinkedIn</a>
+    </div>
+    <div class="footer-child">
+      <h5>Portfólio</h5>
+      <a href="https://github.com/adriantorress">GitHub</a>
+    </div>
   </footer>
 </body>
 
