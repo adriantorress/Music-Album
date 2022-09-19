@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Mini-projeto: Álbum de Música, cadastre-se e tenha seus álbuns salvos!">
   <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/home.css')}}" />
-  <link rel="shortcut icon" href="{{url_for('static', filename='img/site/favicon.svg')}}" type="image/x-icon" />
+  <link rel="shortcut icon" href="{{url_for('static', filename='img/site/favicon.ico')}}" type="image/x-icon" />
+  <script type="text/javascript" src="{{url_for('static',filename='js/home.js')}}" defer></script>
   <title>Music Album</title>
 </head>
 
@@ -15,7 +16,6 @@
     <img src="{{url_for('static',filename='img/site/logo.png')}}" alt="Imagem de Fundo" />
     <h1>Music<br>Album</h1>
   </a>
-  <script type="text/javascript" src="{{url_for('static',filename='js/home.js')}}"></script>
 </body>
 
 </html>
