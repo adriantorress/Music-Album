@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="../css/sign.css" />
+  <link rel="shortcut icon" href="../img/site/favicon.ico" type="image/x-icon" />
+  <script type="text/javascript" src="../js/sign.js" defer></script>
+  <title>Sign</title>
+</head>
+
+<body>
+  <header>
+    <div class="header-div">
+      <a href="home.html" class="logo-a">
+        <img class="logo-img" src="../img/site/logo.png" alt="Imagem de Fundo" />
+        <h1 class="logo-text">Music<br>Album</h1>
+      </a>
+    </div>
+  </header>
+  <main id="main">
+    <section class="container" id="sign-up">
+      <div class="header">
+        <h1>Sign-up</h1>
+      </div>
+      <form action="">
+        <div class="input-group">
+          <div class="input-box">
+            <label for="firstName">Nome</label>
+            <input type="text" id="firstName" name="firstName" placeholder="Digite seu primeiro nome" required
+              maxlength="30">
+          </div>
+
+          <div class="input-box">
+            <label for="lastName">Sobrenome</label>
+            <input type="text" id="lastName" name="lastName" placeholder="Digite seu sobrenome" required maxlength="30">
+          </div>
+
+          <div class="input-box">
+            <label for="username">Nome de usuário</label>
+            <input type="text" id="username" name="username" placeholder="Digite seu nome de usuário" required
+              maxlength="20">
+          </div>
+
+          <div class="input-box">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Digite seu email" required maxlength="50">
+          </div>
+
+          <div class="input-box">
+            <label for="password">Senha</label>
+            <input type="password" id="password" name="password" placeholder="Digite sua senha" required minlength="4"
+              maxlength="16">
+          </div>
+
+          <div class="input-box">
+            <label for="passwordConfirmation">Confirme sua senha</label>
+            <input type="password" id="passwordConfirmation" name="passwordConfirmation"
+              placeholder="Digite a senha novamente" required minlength="4" maxlength="16">
+          </div>
+
+          <div class="input-box">
+            <label for="number">Celular</label>
+            <input type="tel" id="number" name="number" placeholder="(xx) x xxxx-xxxx" required minlength="10"
+              maxlength="11">
+          </div>
+
+          <div class="gender-inputs">
+            <div class="gender-title">
+              <h6>Gênero</h6>
+            </div>
+
+            <div class="gender-group">
+              <div class="gender-input">
+                <input type="radio" id="female" value="female" name="gender" required>
+                <label for="female">Feminino</label>
+              </div>
+
+              <div class="gender-input">
+                <input type="radio" id="male" value="male" name="gender">
+                <label for="male">Masculino</label>
+              </div>
+
+              <div class="gender-input">
+                <input type="radio" id="others" value="others" name="gender">
+                <label for="others">Outros</label>
+              </div>
+
+              <div class="gender-input">
+                <input type="radio" id="none" value="none" name="gender">
+                <label for="none">Prefiro não dizer</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="continue-button">
+          <input type="submit" id="send" value="Continuar" />
+        </div>
+        <!-- {%if sign_up_response != "Usuário cadastrado com sucesso!" %}
+        <div class="small">
+          <small>{{sign_up_response}}</small>
+        </div>
+        {% endif %} -->
+      </form>
+    </section>
+    <section class="container changeColor" id="sign-in">
+      <div class="header" id="header-sign-in">
+        <h1>Sign-in</h1>
+      </div>
+      <form action="">
+        <div class="input-group-login">
+          <div class="input-box-login">
+            <label for="ent">Usuário</label>
+            <input type="text" id="ent" name="ent" placeholder="Username, celular ou email" required maxlength="20">
+          </div>
+          <div class="input-box-login">
+            <label for="password-login">Senha</label>
+            <input type="password" id="password-login" name="password-login" placeholder="Digite sua senha" required
+              minlength="4" maxlength="16">
+          </div>
+          <div class="sign-in-button">
+            <input type="submit" id="enviar" value="Entrar" />
+          </div>
+          <!-- <div class="small-sign-in">
+            <small>{{sign_in_response}}</small>
+          </div> -->
+        </div>
+      </form>
+    </section>
+  </main>
+</body>
+
+</html>
