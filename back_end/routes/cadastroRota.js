@@ -21,22 +21,22 @@ router.post('/', async (req, res) => {
 
 
   if (!firstName || !username || !email || !password || !number || !gender) {
-    res.status(422).json({ error: 'é obrigatório o preenchimento de todos os dados!' })
+    res.status(422).json({ ok: false, error: 'é obrigatório o preenchimento de todos os dados!' })
     return
   }
 
   if (findUsername || findEmail || findNumber) {
-    res.json({ error: 'Usuário já cadastrado!' })
+    res.status(422).json({ ok: false, error: 'Usuário já cadastrado!' })
     return
   }
 
   try {
     await User.create(user)
 
-    res.status(201).json({ message: 'Usuário cadastrado com sucesso!' })
+    res.status(201).json({ ok: true, message: 'Usuário cadastrado com sucesso!' })
 
   } catch (err) {
-    res.status(500).json({ error: err })
+    res.status(500).json({ ok: false, error: err })
   }
 
 })

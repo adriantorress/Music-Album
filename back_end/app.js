@@ -11,12 +11,15 @@ app.use(express.json())
 
 
 const cadastroRota = require('./routes/cadastroRota')
-app.use('/sign', cadastroRota)
+const loginRota = require('./routes/loginRota')
+
+app.use('/sign-up', cadastroRota)
+app.use('/sign-in', loginRota)
 
 
 app.get('/', (req, res) => {
 
-  res.json({ message: "Hello Express" })
+  res.json({ ok: true, message: 'Application is running!' })
 
 })
 
