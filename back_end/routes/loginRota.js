@@ -15,10 +15,9 @@ router.post('/', async (req, res) => {
   const findUsername = await User.findOne({ username: user.username })
   const findEmail = await User.findOne({ email: user.email })
   const findNumber = await User.findOne({ number: user.number })
-  console.log(findUsername, findEmail, findNumber)
 
 
-  if ((!username && !password) || (!email && !password) || (!number && !password)) {
+  if ((!username || !password) && (!email || !password) && (!number || !password)) {
     res.status(422).json({ ok: false, error: 'é obrigatório o preenchimento de todos os dados!' })
     return
   }
