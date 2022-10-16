@@ -21,22 +21,28 @@ router.post('/', async (req, res) => {
 
 
   if (!firstName || !username || !email || !password || !number || !gender) {
-    res.status(422).json({ ok: false, error: 'é obrigatório o preenchimento de todos os dados!' })
+    res.status(422).json({ error: 'é obrigatório o preenchimento de todos os dados!' })
     return
   }
 
-  if (findUsername || findEmail || findNumber) {
-    res.status(422).json({ ok: false, error: 'Usuário já cadastrado!' })
+  if (findUsername) {
+    res.status(422).json({ error: 'Nome de usuário indisponível!' })
+    return
+  } else if (findEmail) {
+    res.status(422).json({ error: 'Email indisponível!' })
+    return
+  } else if (findNumber) {
+    res.status(422).json({ error: 'Celular indisponível!' })
     return
   }
 
   try {
     await User.create(user)
 
-    res.status(201).json({ ok: true, message: 'Usuário cadastrado com sucesso!' })
+    res.status(201).json({ message: 'Usuário cadastrado com sucesso!', user })
 
   } catch (err) {
-    res.status(500).json({ ok: false, error: err })
+    res.status(500).json({ error: err })
   }
 
 })

@@ -3,37 +3,48 @@ const User = require('../models/User')
 
 router.post('/', async (req, res) => {
 
-  const { username, email, password, number } = req.body
+  const { ent, passwordLogin
+  } = req.body
 
   const user = {
-    username,
-    email,
-    password,
-    number
+    ent,
+    passwordLogin
   }
 
-  const findUsername = await User.findOne({ username: user.username })
-  const findEmail = await User.findOne({ email: user.email })
-  const findNumber = await User.findOne({ number: user.number })
+  const findUsername = await User.findOne({ username: user.ent })
+  const findEmail = await User.findOne({ email: user.ent })
+  const findNumber = await User.findOne({ number: user.ent })
 
-
-  if ((!username || !password) && (!email || !password) && (!number || !password)) {
-    res.status(422).json({ ok: false, error: 'é obrigatório o preenchimento de todos os dados!' })
+  
+  if (!ent || !passwordLogin) {
+    res.status(422).json({ error: 'é obrigatório o preenchimento de todos os dados!' })
     return
   }
   else {
     if (!findUsername && !findEmail && !findNumber) {
-      res.status(422).json({ ok: false, error: 'Esse usuário não existe!' })
+      res.status(422).json({ error: 'Esse usuário não existe!' })
       return
     }
-    else if (findUsername?.password === password || findEmail?.password === password || findNumber?.password === password) {
+    else if (findUsername?.password === passwordLogin || findEmail?.password === passwordLogin || findNumber?.password === passwordLogin) {
       try {
+        let usuario;
 
-        res.json({ ok: true, message: 'Usuário logado com sucesso!' })
+        if (findUsername) {
+          usuario = findUsername
+        }
+        else if (findEmail) {
+          usuario = findEmail
+        }
+        else { usuario = findNumber }
+
+        res.json({ message: 'Usuário logado com sucesso!', usuario })
 
       } catch (err) {
-        res.status(500).json({ ok: false, error: err })
+        res.status(500).json({ error: err })
       }
+    }
+    else {
+      res.status(422).json({ error: 'Senha incorreta!' })
     }
   }
 

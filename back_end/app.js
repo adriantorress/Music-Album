@@ -5,6 +5,8 @@ require('dotenv').config();
 const DB_USER = process.env.DB_USER
 const DB_PASS = encodeURIComponent(process.env.DB_PASSWORD)
 
+var cors = require('cors');
+app.use(cors());
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
@@ -17,14 +19,6 @@ app.use('/sign-up', cadastroRota)
 app.use('/sign-in', loginRota)
 
 
-app.get('/', (req, res) => {
-
-  res.json({ ok: true, message: 'Application is running!' })
-
-})
-
-
-
 mongoose
   .connect(
     `mongodb+srv://${DB_USER}:${DB_PASS}@apimusicalbum.bujgwdg.mongodb.net/?retryWrites=true&w=majority`
@@ -32,7 +26,7 @@ mongoose
   .then(() => {
     console.log('MongoDB is connected!');
     app.listen(3000, () => {
-      console.log('Server is running!')
+      console.log('Server is running on port 3000!')
     })
   })
   .catch((err) => console.log(err))

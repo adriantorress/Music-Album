@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="../css/sign.css" />
   <link rel="shortcut icon" href="../img/site/favicon.ico" type="image/x-icon" />
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script type="text/javascript" src="../js/sign.js" defer></script>
   <title>Sign</title>
 </head>
@@ -24,7 +25,7 @@
       <div class="header">
         <h1>Sign-up</h1>
       </div>
-      <form action="">
+      <form id="cadastrar">
         <div class="input-group">
           <div class="input-box">
             <label for="firstName">Nome</label>
@@ -108,15 +109,15 @@
       <div class="header" id="header-sign-in">
         <h1>Sign-in</h1>
       </div>
-      <form action="">
+      <form id="logar">
         <div class="input-group-login">
           <div class="input-box-login">
             <label for="ent">Usuário</label>
             <input type="text" id="ent" name="ent" placeholder="Username, celular ou email" required maxlength="20">
           </div>
           <div class="input-box-login">
-            <label for="password-login">Senha</label>
-            <input type="password" id="password-login" name="password-login" placeholder="Digite sua senha" required
+            <label for="passwordLogin">Senha</label>
+            <input type="password" id="passwordLogin" name="passwordLogin" placeholder="Digite sua senha" required
               minlength="4" maxlength="16">
           </div>
           <div class="sign-in-button">
