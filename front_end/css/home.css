@@ -125,6 +125,13 @@ body {
   overflow: auto;
 }
 
+#sign-up {
+  width: 27rem;
+}
+
+#sign-up .input-box {
+  width: 70%;
+}
 
 ::-webkit-scrollbar {
   width: 0;
@@ -150,7 +157,6 @@ body {
   padding-top: 13px;
   margin-top: 5%;
   margin-bottom: 5%;
-
 }
 
 .input-box input {
@@ -280,4 +286,12 @@ p a:hover {
 
 #ja-cadastrado {
   margin-bottom: 5rem
+}
+
+.fa-solid {
+  position: absolute;
+  top: 15px;
+  right: 5px;
+  cursor: pointer;
+  color: #084088
 }

@@ -474,7 +474,6 @@ site_sections.sort((cat_a, cat_b) => cat_a.id - cat_b.id).map((section) => {
   main.innerHTML += `<section class="container-child-${href}" id="a"></section>`
   let contChild = document.querySelector(`.container-child-${href}`)
   album?.sort((a, b) => a.div2_name.localeCompare(b.div2_name)).map((song, position) => {
-    console.log((album.length - 1) === position)
     let { title_alt, img_src, div2_name, span } = song
     contChild.innerHTML +=
       `<a href="#" title="${title_alt}">
@@ -502,3 +501,39 @@ main.addEventListener("click", event => {
     aside.classList.remove("open")
   }
 })
+
+$('main a').click(function (e) {
+  e.preventDefault();
+  const id = $(this).attr('href'),
+    targetOffset = $(id).offset().top;
+  $('html, body').animate({
+    scrollTop: targetOffset
+  }, 750);
+  document.querySelector('.btnOff')?.classList.toggle('btnOn')
+  document.querySelector('.btnOff')?.classList.toggle('btnOff')
+})
+document.querySelector('#btn').addEventListener('click', function (e) {
+  e.preventDefault();
+  const id = $(this).attr('href'),
+    targetOffset = $(id).offset().top;
+  $('html, body').animate({
+    scrollTop: targetOffset
+  }, 750);
+  document.querySelector('.btnOn')?.classList.toggle('btnOff')
+  document.querySelector('.btnOff')?.classList.toggle('btnOn')
+}
+
+)
+
+var timer = null;
+window.addEventListener('scroll', (e) => {
+  if (timer !== null) {
+    clearTimeout(timer);
+    document.querySelector('.btnOff')?.classList.add('btnOn')
+    document.querySelector('.btnOn')?.classList.remove('btnOff')
+  }
+  timer = setTimeout(function () {
+    document.querySelector('.btnOn')?.classList.add('btnOff')
+    document.querySelector('.btnOff')?.classList.remove('btnOn')
+  }, 3000);
+}, false);
