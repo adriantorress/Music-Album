@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&family=Mouse+Memoirs&display=swap');
 
 * {
   margin: 0;
@@ -10,12 +9,24 @@
 
 body {
   display: flex;
-  justify-content: center;
+  align-items: center;
   font-size: 100%;
+  flex-direction: column;
+  height: 100vh;
   background: linear-gradient(90deg, #09738a 15%, #092b5a 85%);
 }
 
-a {
+.home {
+
+  width: inherit;
+
+}
+
+.off {
+  display: none;
+}
+
+#a-home {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,7 +36,7 @@ a {
   width: 18.75rem;
 }
 
-a img {
+#a-home img {
   max-height: 20rem;
   max-width: 20rem;
   width: 100%;
@@ -34,7 +45,7 @@ a img {
   user-select: none;
 }
 
-a h1 {
+#a-home h1 {
   transform: rotate(-15deg);
   font-size: 9rem;
   color: #ff1168;
@@ -46,7 +57,227 @@ a h1 {
   user-select: none;
 }
 
-a:hover {
+#a-home:hover {
   height: 20rem;
   width: 20rem;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 12.25rem;
+  width: 100%;
+
+}
+
+.logo-a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  height: 6.25rem;
+  width: 6.25rem;
+  transition: 0.33s;
+}
+
+.logo-img {
+  max-height: 6.75rem;
+  max-width: 6.75rem;
+  height: 100%;
+  width: 100%;
+  opacity: 0.9;
+  user-select: none;
+}
+
+.logo-text {
+  transform: rotate(-15deg);
+  font-size: 3rem;
+  color: #ff1168;
+  text-shadow: 0.125rem 0.125rem black;
+  text-align: center;
+  position: absolute;
+  padding-bottom: 0.9375rem;
+  font-family: 'Mouse Memoirs', sans-serif;
+  user-select: none;
+}
+
+.logo-a:hover {
+  height: 6.75rem;
+  width: 6.75rem;
+}
+
+
+.container {
+  display: flex;
+  width: 25rem;
+  margin-top: 2rem;
+  height: 30rem;
+  border: none;
+  border-radius: 10px;
+  align-items: center;
+  background-color: #ffffff80;
+  flex-direction: column;
+  font-family: 'Inter', sans-serif;
+  opacity: 0.9;
+  box-shadow: 3px 3px #00000060;
+  overflow: auto;
+}
+
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+
+.header-div {
+  height: 100%;
+}
+
+.title {
+  margin-top: 45px;
+}
+
+.title h1 {
+  text-align: center;
+  color: #084088
+}
+
+
+.input-box {
+  position: relative;
+  padding-top: 13px;
+  margin-top: 5%;
+  margin-bottom: 5%;
+
+}
+
+.input-box input {
+  width: 100%;
+  padding: 5px 5px;
+  border: none;
+  border-bottom: 2px solid #084088;
+  background-color: transparent;
+  outline: none;
+  min-width: 180px;
+  font-size: 16px;
+  transition: all 0.3s ease-out;
+  border-radius: 0;
+  display: inline-block;
+}
+
+.input-box label {
+  color: #084088;
+  top: 0;
+  left: 0;
+  position: absolute;
+  margin-top: 13px;
+  transition: all .3s ease-out;
+
+}
+
+.input-box input:focus {
+  border-bottom: 2px solid #4086e0
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px hsl(200, 27%, 63%) inset;
+  box-shadow: 0;
+}
+
+.button input {
+  background-color: transparent;
+  border-color: #084088;
+  color: #084088;
+  padding: 7px;
+  font-size: 12pt;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  transition: all .3s ease-out;
+  margin-top: 20px
+}
+
+.button input:hover {
+  background-color: #4086e0;
+  color: #fff;
+}
+
+.justify-center {
+  display: flex;
+  justify-content: center;
+  width: 53%;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  border: none
+}
+
+.justify-center hr {
+  background-color: #eeeeee90;
+  height: 2px;
+  width: 60%;
+  border: none
+}
+
+p {
+  color: #084088;
+  font-size: 12pt;
+  text-align: center;
+}
+
+p a {
+  color: #8032da;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all .3s ease-out;
+  cursor: pointer;
+}
+
+p a:hover {
+  color: #084088;
+
+}
+
+.input-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 2.1rem;
+}
+
+.gender-inputs {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 13px;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  width: 50%;
+}
+
+.gender-title p {
+  color: #084088
+}
+
+.gender-input {
+  padding: 0.1rem 0.85rem;
+  margin-top: 10px;
+
+
+}
+
+.gender-input input {
+  margin-right: 0.35rem
+}
+
+.gender-input label {
+  font-size: 10.5pt;
+  color: #000
+}
+
+#ja-cadastrado {
+  margin-bottom: 5rem
 }

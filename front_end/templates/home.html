@@ -7,15 +7,125 @@
   <meta name="description" content="Mini-projeto: Álbum de Música, cadastre-se e tenha seus álbuns salvos!">
   <link rel="stylesheet" type="text/css" href="../css/home.css" />
   <link rel="shortcut icon" href="../img/site/favicon.ico" type="image/x-icon" />
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script type="text/javascript" src="../js/home.js" defer></script>
   <title>Music Album</title>
 </head>
 
 <body>
-  <a href="sign.html">
-    <img src="../img/site/logo.png" alt="Imagem de Fundo" />
-    <h1>Music<br>Album</h1>
-  </a>
+  <div class="home">
+    <a id="a-home">
+      <img src="../img/site/logo.png" alt="Imagem de Fundo" />
+      <h1>Music<br>Album</h1>
+    </a>
+  </div>
+  <header class="off" id="header">
+    <div class="header-div">
+      <a href="home.html" class="logo-a">
+        <img class="logo-img" src="../img/site/logo.png" alt="Imagem de Fundo" />
+        <h1 class="logo-text">Music<br>Album</h1>
+      </a>
+    </div>
+  </header>
+  <div class="off" id="sign-in">
+    <div class="title">
+      <h1>Entrar</h1>
+    </div>
+    <div class="input-box">
+      <label id="label-ent" for="ent">Usuário</label>
+      <input type="text" id="ent" name="ent" required maxlength="20">
+    </div>
+    <div class="input-box">
+      <label id="label-passwordLogin" for="passwordLogin">Senha</label>
+      <input type="password" id="passwordLogin" name="passwordLogin" required minlength="4" maxlength="16">
+    </div>
+    <div class="button">
+      <input type="submit" id="enviar" value="Entrar" />
+    </div>
+    <div class="justify-center">
+      <hr>
+    </div>
+    <p>Não tem uma conta?
+      <a id="cadastre-se">Cadastre-se</a>
+    </p>
+  </div>
+  <div class="off" id="sign-up">
+    <div class="title">
+      <h1>Cadastrar-se</h1>
+    </div>
+
+    <div class="input-box">
+      <label id="label-firstName" for="firstName">Nome</label>
+      <input type="text" id="firstName" name="firstName" required maxlength="30">
+    </div>
+
+    <div class="input-box">
+      <label id="label-lastName" for="lastName">Sobrenome</label>
+      <input type="text" id="lastName" name="lastName" required maxlength="30">
+    </div>
+
+    <div class="input-box">
+      <label id="label-username" for="username">Nome de usuário</label>
+      <input type="text" id="username" name="username" required maxlength="20">
+    </div>
+
+    <div class="input-box">
+      <label id="label-email" for="email">Email</label>
+      <input type="email" id="email" name="email" required maxlength="50">
+    </div>
+
+    <div class="input-box">
+      <label id="label-password" for="password">Senha</label>
+      <input type="password" id="password" name="password" required minlength="4" maxlength="16">
+    </div>
+
+    <div class="input-box">
+      <label id="label-passwordConfirmation" for="passwordConfirmation">Confirme sua senha</label>
+      <input type="password" id="passwordConfirmation" name="passwordConfirmation" required minlength="4"
+        maxlength="16">
+    </div>
+
+    <div class="input-box">
+      <label id="label-number" for="number">Celular</label>
+      <input type="tel" id="number" name="number" required minlength="10" maxlength="11">
+    </div>
+
+    <div class="gender-inputs">
+      <div class="gender-title">
+        <p>Gênero</p>
+      </div>
+
+      <div class="gender-input">
+        <input type="radio" id="female" value="feminino" name="gender" required>
+        <label for="female">Feminino</label>
+      </div>
+
+      <div class="gender-input">
+        <input type="radio" id="male" value="masculino" name="gender">
+        <label for="male">Masculino</label>
+      </div>
+
+      <div class="gender-input">
+        <input type="radio" id="others" value="outros" name="gender">
+        <label for="others">Outros</label>
+      </div>
+
+      <div class="gender-input">
+        <input type="radio" id="none" value="prefiro não dizer" name="gender">
+        <label for="none">Prefiro não dizer</label>
+      </div>
+    </div>
+
+    <div class="button">
+      <input type="submit" id="send" value="Cadastrar" />
+    </div>
+    <div class="justify-center">
+      <hr>
+    </div>
+    <p id="ja-cadastrado">Já é cadastrado?
+      <a id="a-entrar">Entrar</a>
+    </p>
+  </div>
 </body>
 
 </html>
