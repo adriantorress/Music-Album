@@ -18,15 +18,19 @@ const loginRota = require('./routes/loginRota')
 app.use('/sign-up', cadastroRota)
 app.use('/sign-in', loginRota)
 
-
-mongoose
-  .connect(
-    `mongodb+srv://${DB_USER}:${DB_PASS}@apimusicalbum.bujgwdg.mongodb.net/?retryWrites=true&w=majority`
-  )
-  .then(() => {
-    console.log('MongoDB is connected!');
-    app.listen(3000, () => {
-      console.log('Server is running on port 3000!')
+try {
+  mongoose
+    .connect(
+      `mongodb+srv://${DB_USER}:${DB_PASS}@apimusicalbum.bujgwdg.mongodb.net/?retryWrites=true&w=majority`
+    )
+    .then(() => {
+      console.log('MongoDB is connected!');
+      app.listen(3000, () => {
+        console.log('Server is running on port 3000!')
+      })
     })
-  })
-  .catch((err) => console.log(err))
+    .catch((err) => console.log(err))
+}
+catch {
+  console.log("Não foi possível efetuar a conexão ao banco de dados!")
+}

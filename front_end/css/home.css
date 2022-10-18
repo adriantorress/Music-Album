@@ -16,17 +16,11 @@ body {
   background: linear-gradient(90deg, #09738a 15%, #092b5a 85%);
 }
 
-.home {
-
-  width: inherit;
-
-}
-
 .off {
   display: none;
 }
 
-#a-home {
+#home {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,9 +28,10 @@ body {
   transition: 0.33s;
   height: 18.75rem;
   width: 18.75rem;
+  cursor: pointer;
 }
 
-#a-home img {
+#home img {
   max-height: 20rem;
   max-width: 20rem;
   width: 100%;
@@ -45,7 +40,7 @@ body {
   user-select: none;
 }
 
-#a-home h1 {
+#home h1 {
   transform: rotate(-15deg);
   font-size: 9rem;
   color: #ff1168;
@@ -57,7 +52,7 @@ body {
   user-select: none;
 }
 
-#a-home:hover {
+#home:hover {
   height: 20rem;
   width: 20rem;
 }
@@ -126,7 +121,7 @@ body {
 }
 
 #sign-up {
-  width: 27rem;
+  width: 28rem;
 }
 
 #sign-up .input-box {
