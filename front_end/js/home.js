@@ -47,7 +47,8 @@ var validarSenha;
 var validarConfirmarSenha;
 var validarCelular;
 var validarGenero;
-const regex = new RegExp('^((1[1-9])|([2-9][0-9]))((3[0-9]{3}[0-9]{4})|(9[0-9]{3}[0-9]{5}))$');
+const cellRegex = new RegExp('^((1[1-9])|([2-9][0-9]))((3[0-9]{3}[0-9]{4})|(9[0-9]{3}[0-9]{5}))$');
+const emailRegex = new RegExp("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+).(\.[a-z]{2,3})$")
 
 
 //---Listeners---
@@ -100,7 +101,7 @@ btnEye.forEach((btn) => {
 //Escutando o evento CLICK nos botão de cadastrar
 cadastrar?.addEventListener("click", e => {
   e.preventDefault();
-  if (inputs[7].value === inputs[8].value) {
+  if (validarNome && validarSobrenome && validarUsuario && validarGenero && validarEmail && validarCelular && validarSenha && validarConfirmarSenha) {
     let data = {
       firstName: inputs[3].value,
       lastName: inputs[4].value,
@@ -110,18 +111,33 @@ cadastrar?.addEventListener("click", e => {
       number: inputs[9].value,
       gender: genderSelected
     }
-    console.log(validarNome, validarSobrenome, validarUsuario, validarSenha, validarConfirmarSenha, validarEmail, validarCelular, validarGenero)
     axios.post(urlCadastro, data)
       .then(response => {
         console.log(response.data)
       })
       .catch(error => console.log(error.response.data));
   }
-  else {
-    console.log({ error: "As senha estão diferentes!" })
+  else if (!validarNome) {
+    inputs[3].focus();
   }
-  resetDecorations();
-
+  else if (!validarSobrenome) {
+    inputs[4].focus();
+  }
+  else if (!validarUsuario) {
+    inputs[5].focus();
+  }
+  else if (!validarEmail) {
+    inputs[6].focus();
+  }
+  else if (!validarSenha) {
+    inputs[7].focus();
+  }
+  else if (!validarConfirmarSenha) {
+    inputs[8].focus();
+  }
+  else if (!validarCelular) {
+    inputs[9].focus();
+  }
 });
 
 
@@ -132,14 +148,13 @@ logar?.addEventListener("click", (e) => {
     ent: inputs[0].value,
     passwordLogin: inputs[1].value
   };
-
   axios.post(urlLogin, data)
     .then(response => {
       console.log(response.data)
     })
-    .catch(error => console.log(error.response.data));
-  resetDecorations();
-
+    .catch(error => {
+      console.log(error.response.data)
+    });
 });
 
 
@@ -212,7 +227,7 @@ function onKeyUp(input) {
           }
         }
         else if (input.id == "number") {
-          validarCelular = regex.test(input.value);
+          validarCelular = cellRegex.test(input.value);
           if (!validarCelular) {
             keyUpDecorations(label, input, "red", "Celular *Formato inválido", validarCelular)
           }
@@ -221,10 +236,10 @@ function onKeyUp(input) {
           }
         }
         else if (input.id == "email") {
-          let tam = input.value.length
-          let valor = input.value
-          if ((tam < 5) || (!(valor.includes('.'))) || (valor.indexOf(' ') >= 0) || (!(valor.includes("@"))) || ((valor.includes("@") && valor.indexOf("@") < 1)) || ((((valor.includes("@") && valor.indexOf("@") >= 1) && tam >= 5) && ((tam - (valor.indexOf("@"))) < 4))) || (valor.includes('.') && (valor.indexOf('.') <= valor.indexOf('@'))) && !(valor.includes('.') && (valor.indexOf('.') - valor.indexOf('@') < 2)) || ((valor.includes('.') && (valor.indexOf('.') - valor.indexOf('@') >= 2) && ((tam - valor.indexOf('.')) <= 1)) || (valor.includes('.') && (tam - valor.indexOf('.') < 2)))) {
+          validarEmail = emailRegex.test(input.value);
+          if (!validarEmail) {
             keyUpDecorations(label, input, "red", "Email *Incorreto", validarEmail)
+
           }
           else {
             label.removeAttribute('style');
@@ -318,7 +333,6 @@ function focusOutDecorations(input, label, nameLabel) {
 //Reseta 'todas' as estilizações dos inputs e suas respectivas labels
 function resetDecorations() {
   labelGender.removeAttribute('style');
-  genderSelected.reset();
   inputs.forEach(input => {
     if (input.id != "send" && input.id != "enviar" && (input.id != "male" && input.id != "female" && input.id != "none" && input.id != "others")) {
       input.value = ""
