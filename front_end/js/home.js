@@ -143,12 +143,15 @@ logar?.addEventListener("click", (e) => {
     .then(response => {
       console.log(response.data)
       resetDecorations()
+      onFocusIn(inputs[0])
     })
     .catch(error => {
       let errorData = error.response.data;
       console.log(errorData);
-      estilizarValidacaoResponseLogin(0)
-      estilizarValidacaoResponseLogin(1)
+      estilizarValidacaoResponseLogin(0);
+      estilizarValidacaoResponseLogin(1);
+      onFocusIn(inputs[0], "red");
+      inputs[0].focus();
     });
 });
 
@@ -185,6 +188,7 @@ function estilizarValidacaoResponse(pos, errorData, inner) {
   }
 }
 
+
 function estilizarValidacaoResponseLogin(pos) {
   if (pos === 0) {
     if (inputs[0].value.length > 0) {
@@ -206,6 +210,7 @@ function estilizarValidacaoResponseLogin(pos) {
   }
 
 }
+
 
 //Escuta o evento de FOCUSIN do input passado
 function onFocusIn(input, color = '#4086e0') {
