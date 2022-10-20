@@ -142,9 +142,13 @@ logar?.addEventListener("click", (e) => {
   axios.post(urlLogin, data)
     .then(response => {
       console.log(response.data)
+      resetDecorations()
     })
     .catch(error => {
-      console.log(error.response.data)
+      let errorData = error.response.data;
+      console.log(errorData);
+      estilizarValidacaoResponseLogin(0)
+      estilizarValidacaoResponseLogin(1)
     });
 });
 
@@ -179,6 +183,28 @@ function estilizarValidacaoResponse(pos, errorData, inner) {
     labels[pos - 1].innerHTML = inner
     inputs[pos].focus();
   }
+}
+
+function estilizarValidacaoResponseLogin(pos) {
+  if (pos === 0) {
+    if (inputs[0].value.length > 0) {
+      labels[0].setAttribute('style', 'font-size:13px; margin-top:0; color: red')
+    }
+    else {
+      labels[0].setAttribute('style', 'color:red')
+    }
+    inputs[0].setAttribute('style', 'border-color:red')
+  }
+  else {
+    if (inputs[1].value.length > 0) {
+      labels[1].setAttribute('style', 'font-size:13px; margin-top:0; color: red')
+    }
+    else {
+      labels[1].setAttribute('style', 'color:red')
+    }
+    inputs[1].setAttribute('style', 'border-color:red')
+  }
+
 }
 
 //Escuta o evento de FOCUSIN do input passado
@@ -357,7 +383,7 @@ function resetDecorations() {
     if (g.checked === true) { g.checked = false };
   });
   inputs.forEach(input => {
-    if (input.id != "send" && input.id != "enviar" && (input.id != "male" && input.id != "female" && input.id != "none" && input.id != "others")) {
+    if (input.id != "send" && input.id != "enviar" && (input.id != "male" && input.id != "female" && input.id != "none" && input.id != "others") && input.id != "ent" && input.id != "passwordLogin") {
       input.value = ""
     }
     input.removeAttribute("style")
@@ -371,6 +397,9 @@ function resetDecorations() {
         resetLabelInner(input, label, "passwordConfirmation", "Confirme sua senha")
         resetLabelInner(input, label, "number", "Celular")
         resetLabelInner(input, label, "email", "Email")
+      }
+      if ((label.id === "label-ent" || label.id === "label-passwordLogin")) {
+        label.setAttribute('style', `font-size:13px; margin-top:0; color: #4086e0`)
       }
     })
   })
@@ -393,7 +422,7 @@ function keyUpDecorations(label, input, cor, inner, validar, minCaracter = null)
       label.innerHTML = `${inner}`;
     }
     else {
-      label.innerHTML = `${inner} *Insira no mínimo ${minCaracter} caracteres`;
+      label.innerHTML = `${inner} * Insira no mínimo ${minCaracter} caracteres`;
     }
     input.setAttribute('style', 'border-color:red');
     validar = false;
