@@ -258,7 +258,7 @@ function onKeyUp(input) {
         else if (input.id == "email") {
           validarEmail = emailRegex.test(input.value);
           if (!validarEmail) {
-            keyUpDecorations(label, input, "red", "Email *Incorreto", validarEmail)
+            keyUpDecorations(label, input, "red", "Email *Formato inválido", validarEmail)
 
           }
           else {
