@@ -46,7 +46,8 @@ var validarEmail;
 var validarSenha;
 var validarConfirmarSenha;
 var validarCelular;
-var validarGenero;
+var validarGenero = false;
+let menorPos = []
 const cellRegex = new RegExp('^((1[1-9])|([2-9][0-9]))((3[0-9]{3}[0-9]{4})|(9[0-9]{3}[0-9]{5}))$');
 const emailRegex = new RegExp("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+).(\.[a-z]{2,3})$")
 
@@ -61,11 +62,7 @@ gender.forEach((e) => {
       validarGenero = true
       labelGender.setAttribute('style', 'color:green')
     }
-    else {
-      validarGenero = false
-    }
   })
-
 })
 
 
@@ -114,30 +111,24 @@ cadastrar?.addEventListener("click", e => {
     axios.post(urlCadastro, data)
       .then(response => {
         console.log(response.data)
+        resetDecorations();
       })
-      .catch(error => console.log(error.response.data));
+      .catch(error => {
+        let errorData = error.response.data;
+        console.log(errorData);
+        estilizarValidacaoResponse(5, errorData, "Nome de usuário indisponível!")
+        estilizarValidacaoResponse(6, errorData, "Email indisponível!")
+        estilizarValidacaoResponse(9, errorData, "Celular indisponível!")
+      });
   }
-  else if (!validarNome) {
-    inputs[3].focus();
-  }
-  else if (!validarSobrenome) {
-    inputs[4].focus();
-  }
-  else if (!validarUsuario) {
-    inputs[5].focus();
-  }
-  else if (!validarEmail) {
-    inputs[6].focus();
-  }
-  else if (!validarSenha) {
-    inputs[7].focus();
-  }
-  else if (!validarConfirmarSenha) {
-    inputs[8].focus();
-  }
-  else if (!validarCelular) {
-    inputs[9].focus();
-  }
+  estilizarValidacao(validarNome, 3);
+  estilizarValidacao(validarSobrenome, 4);
+  estilizarValidacao(validarUsuario, 5);
+  estilizarValidacao(validarEmail, 6);
+  estilizarValidacao(validarSenha, 7);
+  estilizarValidacao(validarConfirmarSenha, 8);
+  estilizarValidacao(validarCelular, 9);
+  estilizarValidacao(validarGenero, null);
 });
 
 
@@ -161,13 +152,42 @@ logar?.addEventListener("click", (e) => {
 
 //Funções
 
+//Estilizar validação
+function estilizarValidacao(validar, pos) {
+  if (!pos && !validar) {
+    labelGender.removeAttribute('style')
+    labelGender.setAttribute('style', 'color:red')
+  }
+  else if (!validar) {
+    onFocusIn(inputs[`${pos}`], 'red')
+    menorPos.push(pos)
+    inputs[pos].focus();
+  }
+  else {
+    menorPos = []
+  }
+  console.log(Math.min(...menorPos))
+  console.log(menorPos)
+  inputs[(Math.min(...menorPos))]?.focus();
+}
+
+
+//Estilizar validação
+function estilizarValidacaoResponse(pos, errorData, inner) {
+  if (errorData["error"] == inner) {
+    onFocusIn(inputs[pos], 'red');
+    labels[pos - 1].innerHTML = inner
+    inputs[pos].focus();
+  }
+}
+
 //Escuta o evento de FOCUSIN do input passado
-function onFocusIn(input) {
+function onFocusIn(input, color = '#4086e0') {
   input.addEventListener("focusin", (e) => {
     labels.forEach((label) => {
       if (`label-${input.id}` === `${label.id}`) {
-        label.setAttribute('style', 'font-size:13px; margin-top:0; color: #4086e0')
-        input.setAttribute('style', 'border-color:#4086e0')
+        label.setAttribute('style', `font-size:13px; margin-top:0; color: ${color}`)
+        input.setAttribute('style', `border-color:${color}`)
       }
     })
   });
@@ -333,6 +353,9 @@ function focusOutDecorations(input, label, nameLabel) {
 //Reseta 'todas' as estilizações dos inputs e suas respectivas labels
 function resetDecorations() {
   labelGender.removeAttribute('style');
+  gender.forEach((g) => {
+    if (g.checked === true) { g.checked = false };
+  });
   inputs.forEach(input => {
     if (input.id != "send" && input.id != "enviar" && (input.id != "male" && input.id != "female" && input.id != "none" && input.id != "others")) {
       input.value = ""
@@ -341,34 +364,24 @@ function resetDecorations() {
     labels.forEach(label => {
       label.removeAttribute("style")
       if (`label-${input.id}` === `${label.id}`) {
-        if (input.id === "firstName") {
-          label.innerHTML = "Nome";
-        }
-        else if (input.id == "lastName") {
-          label.innerHTML = "Sobrenome";
-        }
-        else if (input.id == "username") {
-          label.innerHTML = "Usuário";
-        }
-        else if (input.id == "password") {
-          label.innerHTML = "Senha";
-        }
-        else if (input.id == "passwordConfirmation") {
-          label.innerHTML = "Confirme sua senha";
-        }
-        else if (input.id == "number") {
-          label.innerHTML = "Celular";
-        }
-        else if (input.id == "email") {
-          label.innerHTML = "Email";
-        }
-        else if (input.id == "email") {
-          label.innerHTML = "Email";
-        }
+        resetLabelInner(input, label, "firstName", "Nome")
+        resetLabelInner(input, label, "lastName", "Sobrenome")
+        resetLabelInner(input, label, "userName", "Usuário")
+        resetLabelInner(input, label, "password", "Senha")
+        resetLabelInner(input, label, "passwordConfirmation", "Confirme sua senha")
+        resetLabelInner(input, label, "number", "Celular")
+        resetLabelInner(input, label, "email", "Email")
       }
     })
   })
 
+}
+
+
+function resetLabelInner(input, label, idd, inner) {
+  if (input.id === idd) {
+    label.innerHTML = inner;
+  }
 }
 
 
