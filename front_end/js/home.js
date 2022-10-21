@@ -47,10 +47,23 @@ var validarSenha;
 var validarConfirmarSenha;
 var validarCelular;
 var validarGenero = false;
+var validUser;
+var validUserSenha;
 let menorPos = []
 const cellRegex = new RegExp('^((1[1-9])|([2-9][0-9]))((3[0-9]{3}[0-9]{4})|(9[0-9]{3}[0-9]{5}))$');
 const emailRegex = new RegExp("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+).(\.[a-z]{2,3})$")
 
+//Var para animação pós cadastro com sucesso para
+const signingUp = document.getElementById('signing-up');
+const loginIn = document.getElementById('login-in');
+const paragrafoCadastreSe = document.getElementById('ja-cadastrado');
+const paragrafoEntrar = document.getElementById('sem-conta');
+
+//Var caso erro login 
+const loginErr = document.getElementById('no-user')
+
+//Token do usuário
+var token;
 
 //---Listeners---
 
@@ -110,8 +123,22 @@ cadastrar?.addEventListener("click", e => {
     }
     axios.post(urlCadastro, data)
       .then(response => {
-        console.log(response.data)
-        resetDecorations();
+        console.log(response.data);
+        paragrafoCadastreSe.classList.add('off');
+        signingUp.classList.remove('off');
+        signingUp.classList.add('signing-up');
+        signingUp.classList.add('animation');
+        setTimeout(() => {
+          signingUp.classList.remove('animation')
+          signingUp.classList.add('ok')
+          resetDecorations();
+          setTimeout(() => {
+            paragrafoCadastreSe.classList.remove('off');
+            signingUp.classList.add('off');
+            signingUp.classList.remove('ok')
+            navegar("cadastro");
+          }, 1500);
+        }, 2500);
       })
       .catch(error => {
         let errorData = error.response.data;
@@ -141,17 +168,40 @@ logar?.addEventListener("click", (e) => {
   };
   axios.post(urlLogin, data)
     .then(response => {
-      console.log(response.data)
-      resetDecorations()
-      onFocusIn(inputs[0])
+      token = Math.random().toString(16).substring(2) + Math.random().toString(16).substring(2);
+      localStorage.setItem("token", token);
+      paragrafoEntrar.classList.add('off');
+      loginIn.classList.remove('off');
+      loginIn.classList.add('signing-up');
+      loginIn.classList.add('animation');
+      setTimeout(() => {
+        loginIn.classList.remove('animation')
+        loginIn.classList.add('ok')
+        setTimeout(() => {
+          paragrafoEntrar.classList.remove('off');
+          loginIn.classList.add('off');
+          loginIn.classList.remove('ok')
+          resetDecorations();
+          window.location.assign("./user.html")
+        }, 1500);
+      }, 1500);
     })
     .catch(error => {
+      validUser = false;
+      validUserSenha = false;
+      loginErr.classList.remove("off");
+      loginErr.classList.add("no-user");
       let errorData = error.response.data;
       console.log(errorData);
       estilizarValidacaoResponseLogin(0);
       estilizarValidacaoResponseLogin(1);
       onFocusIn(inputs[0], "red");
       inputs[0].focus();
+      onFocusOut(inputs[0]);
+      setTimeout(() => {
+        loginErr.classList.add("off");
+        loginErr.classList.remove("no-user");
+      }, 4000)
     });
 });
 
@@ -173,8 +223,6 @@ function estilizarValidacao(validar, pos) {
   else {
     menorPos = []
   }
-  console.log(Math.min(...menorPos))
-  console.log(menorPos)
   inputs[(Math.min(...menorPos))]?.focus();
 }
 
@@ -185,6 +233,7 @@ function estilizarValidacaoResponse(pos, errorData, inner) {
     onFocusIn(inputs[pos], 'red');
     labels[pos - 1].innerHTML = inner
     inputs[pos].focus();
+    onFocusOut(inputs[pos]);
   }
 }
 
@@ -297,6 +346,14 @@ function onKeyUp(input) {
             keyUpDecorations(label, input, "green", "Email", validarEmail)
           }
         }
+        else if (input.id == "ent") {
+          validUser = null;
+          validUserSenha = null;
+        }
+        else if (input.id == "passwordLogin") {
+          validUser = null;
+          validUserSenha = null;
+        }
       }
     })
   })
@@ -308,7 +365,8 @@ function onFocusOut(input) {
   input.addEventListener("focusout", (e) => {
     labels.forEach((label) => {
       if (`label-${input.id}` === `${label.id}`) {
-        if ((input.id === "firstName" && input.value.length >= 3) || (input.id === "lastName" && input.value.length >= 4) || (input.id === "username" && input.value.length >= 5) || (input.id === "password" && input.value.length >= 6) || (input.id === "passwordConfirmation" && passwordConfirmation.value === password.value && passwordConfirmation.value.length >= 6 || (input.id === "email" && (validarEmail === true)) || (input.id === "number" && (validarCelular === true)))) {
+        if ((input.id === "firstName" && input.value.length >= 3) || (input.id === "lastName" && input.value.length >= 4) || (input.id === "username" && input.value.length >= 5 && (label.innerHTML !== "Nome de usuário indisponível!")) || (input.id === "password" && input.value.length >= 6) || (input.id === "passwordConfirmation" && passwordConfirmation.value === password.value && passwordConfirmation.value.length >= 6 || (input.id === "email" && (validarEmail === true) && (label.innerHTML !== "Email indisponível!")) || (input.id === "number" && (validarCelular === true) && (label.innerHTML !== "Celular indisponível!")))) {
+          console.log(label.innerHTML)
           label.setAttribute('style', 'font-size:13px; margin-top:0; color: green')
           input.setAttribute('style', 'border-color:green')
           if (input.id === "firstName") { validarNome = true; }
@@ -318,7 +376,7 @@ function onFocusOut(input) {
           else if (input.id === "passwordConfirmation") { validarConfirmarSenha = true; }
         }
 
-        else if (((input.id === "firstName" && input.value.length < 3) || (input.id === "lastName" && input.value.length < 4) || (input.id === "username" && input.value.length < 5) || (input.id === "password" && input.value.length < 6) || (input.id === "passwordConfirmation" && passwordConfirmation.value !== password.value && input.value.length > 0) || (input.id === "email" && (validarEmail == false)) || (input.id === "number" && (validarCelular === false)) || (input.id === "passwordConfirmation" && passwordConfirmation.value === password.value && passwordConfirmation.value.length >= 1)) && input.value.length > 0) {
+        else if (((input.id === "firstName" && input.value.length < 3) || (input.id === "lastName" && input.value.length < 4) || (input.id === "username" && input.value.length < 5) || (input.id === "password" && input.value.length < 6) || (input.id === "passwordConfirmation" && passwordConfirmation.value !== password.value && input.value.length > 0) || (input.id === "email" && (validarEmail == false)) || (input.id === "number" && (validarCelular === false)) || (input.id === "passwordConfirmation" && passwordConfirmation.value === password.value && passwordConfirmation.value.length >= 1) || (label.innerHTML == "Nome de usuário indisponível!") || (label.innerHTML == "Email indisponível!") || (label.innerHTML == "Celular indisponível!") || (label.innerHTML == "Usuário" && input.id == "ent" && validUser === false) || (label.innerHTML == "Senha" && input.id == "passwordLogin" && validUserSenha === false)) && input.value.length > 0) {
           label.setAttribute('style', 'font-size:13px; margin-top:0; color: red')
           input.setAttribute('style', 'border-color:red')
           if (input.id === "firstName") { validarNome = false; }
@@ -388,7 +446,7 @@ function resetDecorations() {
     if (g.checked === true) { g.checked = false };
   });
   inputs.forEach(input => {
-    if (input.id != "send" && input.id != "enviar" && (input.id != "male" && input.id != "female" && input.id != "none" && input.id != "others") && input.id != "ent" && input.id != "passwordLogin") {
+    if (input.id != "send" && input.id != "enviar" && (input.id != "male" && input.id != "female" && input.id != "none" && input.id != "others")) {
       input.value = ""
     }
     input.removeAttribute("style")
@@ -404,7 +462,7 @@ function resetDecorations() {
         resetLabelInner(input, label, "email", "Email")
       }
       if ((label.id === "label-ent" || label.id === "label-passwordLogin")) {
-        label.setAttribute('style', `font-size:13px; margin-top:0; color: #4086e0`)
+        label.removeAttribute('style')
       }
     })
   })
@@ -454,13 +512,18 @@ function navegar(comeFrom = "home") {
 
   //Caso ele venha da div home (que é o valor padrão, pois o programa vai sair da tela inicial em um timeOut, caso não seja apertado o botão da tela inicial), ele seta home como off e torna a div header e login com suas respectivas classes "normais" e foca o primeiro input de login -> Usuário 
   else if (comeFrom == "home" && home.classList.contains("home")) {
-    home.classList.remove("home")
-    home.classList.add("off")
-    header.classList.remove("off");
-    header.classList.add("header");
-    signIn.classList.remove("off");
-    signIn.classList.add("container")
-    inputs[0].focus();
+    if (localStorage.getItem("token")) {
+      window.location.assign('./user.html');
+    }
+    else {
+      home.classList.remove("home")
+      home.classList.add("off")
+      header.classList.remove("off");
+      header.classList.add("header");
+      signIn.classList.remove("off");
+      signIn.classList.add("container")
+      inputs[0].focus();
+    }
   }
 }
 
@@ -468,7 +531,7 @@ function navegar(comeFrom = "home") {
 //Função navegação vai ficar escutando os eventos de click nos botões de navegação e chamar a função navegar para ir para a div que o usuário determinou, caso esteja na tela home, ele vai para a próxima tela mesmo que não haja um evento de clique
 function navegacao() {
   //Home dura 3s e vai para login
-  setTimeout(navegar, 3000)
+  setTimeout(navegar, 2000)
 
   //Escuta o evento click do botão de navegação da home para ir para tela de login (caso não seja clicado, ele vai pelos 3s definidos)
   btnHome.addEventListener("click", event => {

@@ -16,6 +16,10 @@ body {
   background: linear-gradient(90deg, #09738a 15%, #092b5a 85%);
 }
 
+.home {
+  height: 90vh;
+}
+
 .off {
   display: none;
 }
@@ -289,4 +293,44 @@ p a:hover {
   right: 5px;
   cursor: pointer;
   color: #084088
+}
+
+.signing-up {
+  border: 5px solid #DCDCDC;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  margin-bottom: 3rem;
+  border-left-color: #084088;
+}
+
+.animation {
+  animation: loading .75s linear infinite;
+}
+
+.ok {
+  border-color: green;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.no-user {
+  margin-top: 1rem;
+  border: 2px solid red;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+.no-user p {
+  color: red;
+  font-size: 10.5pt;
+  font-weight: bold;
 }

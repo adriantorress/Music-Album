@@ -1,9 +1,8 @@
-const nav_user = document.querySelector(".nav-user")
-const aside = document.querySelector('.nav-aside')
-const main = document.querySelector('main')
-
-const siteSections = document.querySelector('.site-sections')
-
+const nav_user = document.querySelector(".nav-user");
+const aside = document.querySelector('.nav-aside');
+const main = document.querySelector('main');
+const sair = document.getElementById('sair');
+const siteSections = document.querySelector('.site-sections');
 const site_sections = [
   {
     id: 6,
@@ -493,6 +492,7 @@ nav_user.addEventListener("click", event => {
     aside.classList.remove("open")
   } else {
     aside.classList.add("open")
+    aside.setAttribute("position", 'fixed')
   };
 })
 
@@ -525,6 +525,11 @@ document.querySelector('#btn').addEventListener('click', function (e) {
 
 )
 
+sair.addEventListener("click", (e) => {
+  localStorage.clear();
+  window.location.assign('./home.html');
+})
+
 var timer = null;
 window.addEventListener('scroll', (e) => {
   if (timer !== null) {
@@ -535,5 +540,21 @@ window.addEventListener('scroll', (e) => {
   timer = setTimeout(function () {
     document.querySelector('.btnOn')?.classList.add('btnOff')
     document.querySelector('.btnOff')?.classList.remove('btnOn')
-  }, 3000);
+  }, 2000);
+  if (aside.classList.contains("open")) {
+    aside.classList.remove("open")
+  }
 }, false);
+
+
+window.addEventListener('load', () => {
+  if (!localStorage.getItem("token")) {
+    window.location.assign('./home.html');
+  }
+})
+
+window.addEventListener('mouseover', () => {
+  if (!localStorage.getItem("token")) {
+    window.location.assign('./home.html');
+  }
+})
