@@ -527,7 +527,7 @@ document.querySelector('#btn').addEventListener('click', function (e) {
 
 sair.addEventListener("click", (e) => {
   localStorage.clear();
-  window.location.assign('./home.html');
+  window.location.assign('./index.html');
 })
 
 var timer = null;
@@ -549,12 +549,12 @@ window.addEventListener('scroll', (e) => {
 
 window.addEventListener('load', () => {
   if (!localStorage.getItem("token")) {
-    window.location.assign('./home.html');
+    window.location.assign('./index.html');
   }
 })
 
 window.addEventListener('mouseover', () => {
   if (!localStorage.getItem("token")) {
-    window.location.assign('./home.html');
+    window.location.assign('./index.html');
   }
 })
