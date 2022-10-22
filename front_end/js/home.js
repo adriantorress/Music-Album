@@ -24,8 +24,8 @@ const cadastrar = document.getElementById("send");
 const logar = document.getElementById("enviar");
 
 //URLs para acesso da api via front-end 
-const urlCadastro = "http://localhost:3000/sign-up";
-const urlLogin = "http://localhost:3000/sign-in";
+const urlCadastro = `${process.env.API_URL}/sign-up`;
+const urlLogin = `${process.env.API_URL}/sign-in`;
 
 //Constantes para checar valor nos seus respectivos eventos
 var genderSelected;
