@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon back_end/app.js localhost 3000"
+    "start": "nodemon back_end/app.js https://music-album-back.herokuapp.com/"
   },
   "repository": {
     "type": "git",
