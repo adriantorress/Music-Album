@@ -477,7 +477,7 @@ site_sections.sort((cat_a, cat_b) => cat_a.id - cat_b.id).map((section) => {
     contChild.innerHTML +=
       `<a href="#" title="${title_alt}">
           <div class="c">
-            <img class="c-img" src="../img/${img_src}"
+            <img class="c-img" src="./img/${img_src}"
               alt="${title_alt}" />
             <div class="c-txt">${div2_name}</div>
             <span>${span}</span>
