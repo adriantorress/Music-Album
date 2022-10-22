@@ -338,7 +338,7 @@ footer {
   position: fixed;
   bottom: 10vh;
   border-radius: 50%;
-  right: 0.5vw;
+  right: 1vw;
   transition: all .3s ease-out;
 
 }
