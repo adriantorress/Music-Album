@@ -3,6 +3,7 @@ const aside = document.querySelector('.nav-aside');
 const main = document.querySelector('main');
 const sair = document.getElementById('sair');
 const siteSections = document.querySelector('.site-sections');
+const account = document.getElementById('account');
 const site_sections = [
   {
     id: 6,
@@ -462,6 +463,10 @@ const site_sections = [
   }
 ]
 
+const usuario = localStorage.getItem("usuario");
+
+console.log(usuario)
+
 site_sections.map((section) => {
   let { href, title, name } = section
   siteSections.innerHTML += `<a href="#${href}" title="${title}">${name}</a>`
@@ -557,4 +562,8 @@ window.addEventListener('mouseover', () => {
   if (!localStorage.getItem("token")) {
     window.location.assign('./index.html');
   }
+})
+
+account.addEventListener('click', () => {
+  window.location.assign('./account.html')
 })

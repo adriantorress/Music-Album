@@ -15,7 +15,7 @@ router.post('/', async (req, res) => {
   const findEmail = await User.findOne({ email: user.ent })
   const findNumber = await User.findOne({ number: user.ent })
 
-  
+
   if (!ent || !passwordLogin) {
     res.status(422).json({ error: 'é obrigatório o preenchimento de todos os dados!' })
     return
@@ -36,6 +36,8 @@ router.post('/', async (req, res) => {
           usuario = findEmail
         }
         else { usuario = findNumber }
+
+        usuario.delete("password")
 
         res.json({ message: 'Usuário logado com sucesso!', usuario })
 
