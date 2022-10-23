@@ -170,7 +170,7 @@ logar?.addEventListener("click", (e) => {
     .then(response => {
       token = Math.random().toString(16).substring(2) + Math.random().toString(16).substring(2);
       localStorage.setItem("token", token);
-      localStorage.setItem("usuario", JSON.stringify(response.data.usuario));
+      localStorage.setItem("usuario", JSON.stringify(response.data.userToFront));
       paragrafoEntrar.classList.add('off');
       loginIn.classList.remove('off');
       loginIn.classList.add('signing-up');
