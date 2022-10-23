@@ -465,6 +465,7 @@ const site_sections = [
 
 const usuario = JSON.parse(localStorage.getItem("usuario"));
 
+console.log(usuario);
 const title = document.querySelector("title");
 
 title.innerHTML = `${usuario.firstName} ${usuario.lastName}`
