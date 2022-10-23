@@ -357,19 +357,23 @@ footer {
 .geral {
   display: flex;
   flex-direction: column;
-  background-color: #09c;
+  background-color: #ffffff80;
   width: 60%;
   height: 80vh;
   padding: 5rem;
+  font-family: 'Inter', sans-serif;
+  opacity: 0.9;
+  box-shadow: 3px 3px #00000060;
 }
 
 .title {
-  color: #fff;
+  color: #084088;
   font-size: 30pt;
   font-weight: 700;
 }
 
 .perfil {
+  color: #0b51ad;
   font-size: 18pt;
   font-weight: 700;
   margin-top: 3rem;
