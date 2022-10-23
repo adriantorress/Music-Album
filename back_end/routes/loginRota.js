@@ -37,7 +37,7 @@ router.post('/', async (req, res) => {
         }
         else { usuario = findNumber }
 
-        usuario.delete("password")
+        usuario = usuario.delete(password)
 
         res.json({ message: 'Usuário logado com sucesso!', usuario })
 
