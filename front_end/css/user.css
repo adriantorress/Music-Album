@@ -345,3 +345,32 @@ footer {
 .btnOff {
   display: none;
 }
+
+.body-account {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  font-size: 100%;
+  background: linear-gradient(90deg, #09738a 15%, #092b5a 85%);
+}
+
+.geral {
+  display: flex;
+  flex-direction: column;
+  background-color: #09c;
+  width: 60%;
+  height: 80vh;
+  padding: 5rem;
+}
+
+.title {
+  color: #fff;
+  font-size: 30pt;
+  font-weight: 700;
+}
+
+.perfil {
+  font-size: 18pt;
+  font-weight: 700;
+  margin-top: 3rem;
+}

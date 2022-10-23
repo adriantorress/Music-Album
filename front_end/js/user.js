@@ -463,9 +463,11 @@ const site_sections = [
   }
 ]
 
-const usuario = localStorage.getItem("usuario");
+const usuario = JSON.parse(localStorage.getItem("usuario"));
 
-console.log(usuario)
+const title = document.querySelector("title");
+
+title.innerHTML = `${usuario.firstName} ${usuario.lastName}`
 
 site_sections.map((section) => {
   let { href, title, name } = section
