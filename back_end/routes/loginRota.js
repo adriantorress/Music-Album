@@ -40,6 +40,8 @@ router.post('/', async (req, res) => {
         const userToFront = JSON.parse(JSON.stringify(usuario))
 
         delete userToFront.password;
+        delete userToFront._id;
+        delete userToFront.__v;
 
         res.json({ message: 'Usuário logado com sucesso!', userToFront })
 
