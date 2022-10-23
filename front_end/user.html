@@ -4,6 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" type="text/css" href="./css/user.css" />
   <link rel="shortcut icon" href="./img/site/favicon.ico'" type="image/x-icon" />
   <title>Usuário</title>
@@ -18,24 +21,18 @@
     <a href="#" class="nav-aside-a">Profile</a>
     <a href="#" class="nav-aside-a">Settings</a>
     <a href="#" class="nav-aside-a" id="sair">Log out</a>
-
   </aside>
   <header>
+    <div class="nav-logo">
+      <h1 title="Ir para home" class="logo-text">Music Album</h1>
+    </div>
     <nav>
-      <div class="nav-logo">
-        <a href="index.html" class="logo-a" title="Ir para a home">
-          <img class="logo-img" src="./img/site/logo.png" alt="Imagem de Fundo" />
-          <h1 class="logo-text">Music<br>Album</h1>
-        </a>
+      <div class="pesquisar">
+        <input type="text" id="search" name="search" placeholder="Pesquisar">
+        <a title="Pesquisar"><i class="fa-solid fa-magnifying-glass"></i></a>
       </div>
-      <div class="nav-greetings">
-        <h2>Music Album</h2>
-      </div>
-      <div class="nav-button">
-        <a href=" " class="nav-a" title="Pesquisar">Pesquisar</a>
-        <a href=" " class="nav-a" title="Novo Álbum">Novo Álbum</a>
-        <a href=" " class="nav-a" title="Meus Álbuns">Meus Álbuns</a>
-      </div>
+      <a class="album" title="Novo Álbum"><i class="fa-solid fa-folder-plus"></i></a>
+      <a class="album" title="Meus Álbuns"><i class="fa-solid fa-folder"></i></a>
       <div class="nav-user">
       </div>
     </nav>
