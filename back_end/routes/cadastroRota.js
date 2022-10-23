@@ -39,7 +39,7 @@ router.post('/', async (req, res) => {
   try {
     await User.create(user)
 
-    res.status(201).json({ message: 'Usuário cadastrado com sucesso!', user })
+    res.status(201).json({ message: 'Usuário cadastrado com sucesso!' })
 
   } catch (err) {
     res.status(500).json({ error: err })

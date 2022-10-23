@@ -37,8 +37,11 @@ router.post('/', async (req, res) => {
         }
         else { usuario = findNumber }
 
+        const userToFront = JSON.parse(JSON.stringify(usuario))
 
-        res.json({ message: 'Usuário logado com sucesso!', usuario })
+        userToFront.delete("password");
+
+        res.json({ message: 'Usuário logado com sucesso!', userToFront })
 
       } catch (err) {
         res.status(500).json({ error: err })
