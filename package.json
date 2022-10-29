@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "deploy": "/bin/bash deploy.sh",
     "dev": "nodemon back_end/app.js",
     "start": "node back_end/app.js"
   },
