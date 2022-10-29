@@ -14,9 +14,13 @@ app.use(express.json())
 
 const cadastroRota = require('./routes/cadastroRota')
 const loginRota = require('./routes/loginRota')
+const sectionRota = require('./routes/sectionRota')
+const albumRota = require('./routes/albumRota')
 
 app.use('/sign-up', cadastroRota)
 app.use('/sign-in', loginRota)
+app.use('/section-up', sectionRota)
+app.use('/album-up', albumRota)
 
 try {
   mongoose

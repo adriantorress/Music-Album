@@ -6,12 +6,13 @@ const siteSections = document.querySelector('.site-sections');
 const account = document.getElementById('account');
 const site_sections = [
   {
-    id: 6,
+    id: 5,
     href: "Anime-Endings",
     title: "Ir para Anime Endings",
     name: "Anime Endings",
     album: [
       {
+        href: "Anime-Endings",
         title_alt: "Album das endings de One Piece",
         img_src: "anime-endings/one-piece.jpg",
         div2_name: "One Piece",
@@ -63,7 +64,7 @@ const site_sections = [
     ]
   },
   {
-    id: 5,
+    id: 4,
     href: "Anime-Openings",
     title: "Ir para Anime Openings",
     name: "Anime Openings",
@@ -348,7 +349,7 @@ const site_sections = [
     ]
   },
   {
-    id: 4,
+    id: 3,
     href: "Sertanejo",
     title: "Ir para Sertanejo",
     name: "Sertanejo",
@@ -463,9 +464,17 @@ const site_sections = [
   }
 ]
 
+// siteSections.forEach((section) => {
+//   let dataAlbum = { id, href, title, name, album: [{ title_alt, img_src, div2_name, span }] }
+// })
+
+
+
 const usuario = JSON.parse(localStorage.getItem("usuario"));
 
 const title = document.querySelector("title");
+
+const sugestoes = document.getElementById("sugestoes");
 
 title.innerHTML = `${usuario.firstName} ${usuario.lastName}`
 
@@ -536,6 +545,15 @@ sair.addEventListener("click", (e) => {
   localStorage.clear();
   window.location.assign('./index.html');
 })
+
+site_sections.forEach((section) => {
+  (section.album).forEach((obj => {
+    let valueSugestion = obj.div2_name;
+    sugestoes.innerHTML += `<option>${valueSugestion}</option>`
+  }))
+});
+
+
 
 var timer = null;
 window.addEventListener('scroll', (e) => {
