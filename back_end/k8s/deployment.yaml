@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: music-album
+  labels:
+    app: music-album
+spec: 
+  replicas: 3
+  selector: 
+   matchLabels:
+    app: music-album
+  template:
+    metadata: 
+      labels:
+        app: music-album
+    spec: 
+      containers:
+      - name: music-album
+        image: adriantds/album-back
+        ports:
+          - containerPort: 3000

@@ -24,8 +24,8 @@ const cadastrar = document.getElementById("send");
 const logar = document.getElementById("enviar");
 
 //URLs para acesso da api via front-end 
-const urlCadastro = `https://music-album-back.herokuapp.com/sign-up`;
-const urlLogin = `https://music-album-back.herokuapp.com/sign-in`;
+const urlCadastro = `https://api-music-album.adriantds.me/sign-up`;
+const urlLogin = `https://api-music-album.adriantds.me/sign-in`;
 
 //Constantes para checar valor nos seus respectivos eventos
 var genderSelected;

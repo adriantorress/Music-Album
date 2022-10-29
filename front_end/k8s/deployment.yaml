@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: music-album-front
+  labels:
+    app: music-album-front
+spec: 
+  replicas: 3
+  selector: 
+   matchLabels:
+    app: music-album-front
+  template:
+    metadata: 
+      labels:
+        app: music-album-front
+    spec: 
+      containers:
+      - name: music-album-front
+        image: adriantds/album-front
+        ports:
+          - containerPort: 80
